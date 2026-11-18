@@ -158,7 +158,7 @@
   .menu-panel { display: none; grid-template-columns: 1fr 1fr; gap: 6px 56px; }
   .menu-panel.active { display: grid; animation: fade .35s ease; }
   @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
-  .dish { padding: 20px 0; border-bottom: 1px dashed var(--line); }
+  .dish { padding: 20px 0; border-bottom: 1px dashed var(--line); display: flex; flex-direction: column; justify-content: center; }
   .dish-top { display: flex; align-items: baseline; gap: 10px; }
   .dish h3 { font-size: 1.2rem; font-weight: 700; }
   .dish h3 small { display: block; font-family: "DM Sans", sans-serif; font-size: .78rem; font-weight: 500; color: var(--maroon); letter-spacing: .04em; margin-top: 2px; }
@@ -179,7 +179,7 @@
   .side-choice .intro { grid-column: 1 / -1; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--maroon); }
   .served-with { grid-column: 1 / -1; margin-top: 14px; font-size: .95rem; color: var(--muted); }
   .served-with b { color: var(--maroon); letter-spacing: .12em; font-size: .78rem; margin-right: 6px; }
-  .dish.has-photo { display: flex; align-items: center; gap: 16px; }
+  .dish.has-photo { flex-direction: row; align-items: center; gap: 16px; }
   .dish-photo { flex: none; width: 76px; height: 76px; border-radius: 12px; object-fit: cover; }
   .dish-body { flex: 1; min-width: 0; }
   .dish p { color: var(--muted); font-size: .95rem; margin-top: 4px; max-width: 46ch; }
@@ -463,7 +463,7 @@
         <div class="dish has-photo"><img class="dish-photo" src="diri-blan-thumb.webp" alt="A bowl of diri blan (white rice)" width="200" height="200" loading="lazy"><div class="dish-body"><div class="dish-top"><h3>Diri Blan<small>White Rice</small></h3><span class="dots"></span><span class="price">$7.50</span></div></div></div>
         <div class="dish"><div class="dish-top"><h3>Diri Kole<small>Rice &amp; Beans</small></h3><span class="dots"></span><span class="price">$7.50</span></div></div>
         <div class="dish"><div class="dish-top"><h3>Diri Djondjon<small>Black Mushroom Rice</small></h3><span class="dots"></span><span class="price">$8.50</span></div></div>
-        <div class="dish"><div class="dish-top"><h3>Bannann Peze<small>Fried Plantains</small></h3><span class="dots"></span><span class="price">$5.50</span></div></div>
+        <div class="dish has-photo"><img class="dish-photo" src="bannann-peze-thumb.webp" alt="Bannann peze (fried plantains) with pikliz" width="200" height="200" loading="lazy"><div class="dish-body"><div class="dish-top"><h3>Bannann Peze<small>Fried Plantains</small></h3><span class="dots"></span><span class="price">$5.50</span></div></div></div>
         <div class="dish"><div class="dish-top"><h3>Macaroni au Gratin<small>Haitian mac &amp; cheese</small></h3><span class="dots"></span><span class="price">$6</span></div></div>
         <div class="dish"><div class="dish-top"><h3>Extra Pikliz<small>Spicy pickled slaw</small></h3><span class="dots"></span><span class="price">$1</span></div></div>
         <div class="dish"><div class="dish-top"><h3>Extra Sòs Pwa<small>Bean sauce</small></h3><span class="dots"></span><span class="price">$2</span></div></div>
