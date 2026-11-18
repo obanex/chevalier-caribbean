@@ -12,7 +12,8 @@ Order online: https://order.toasttab.com/online/chevalier-caribbean-restaurant-n
 - `logo.webp` — original logo
 - `logo-full.webp`, `logo-emblem.webp`, `logo-light.webp`, `favicon.png` — web versions of the logo
 - `menu.webp` — printable menu
-- `griyo.webp`, `griyo-thumb.webp` — griyo plate photo (Our Story) and its menu thumbnail
+- `griyo.webp` — griyo plate photo (Our Story)
+- `*-thumb.webp` — dish photo thumbnails on the menu (griyo, poul fri)
 
 ## Preview locally
 
