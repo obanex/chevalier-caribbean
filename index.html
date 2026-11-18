@@ -123,6 +123,7 @@
   .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .about-media { display: flex; flex-direction: column; align-items: center; gap: 22px; }
   .about-media img { width: 100%; max-width: 520px; }
+  .about-media .about-photo { border-radius: var(--radius); box-shadow: 0 18px 40px -18px rgba(28,23,18,.45); }
   .about-media .about-badge { position: static; width: 100%; max-width: 520px; }
   .about-card {
     position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5;
@@ -178,6 +179,9 @@
   .side-choice .intro { grid-column: 1 / -1; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--maroon); }
   .served-with { grid-column: 1 / -1; margin-top: 14px; font-size: .95rem; color: var(--muted); }
   .served-with b { color: var(--maroon); letter-spacing: .12em; font-size: .78rem; margin-right: 6px; }
+  .dish.has-photo { display: flex; align-items: center; gap: 16px; }
+  .dish-photo { flex: none; width: 76px; height: 76px; border-radius: 12px; object-fit: cover; }
+  .dish-body { flex: 1; min-width: 0; }
   .dish p { color: var(--muted); font-size: .95rem; margin-top: 4px; max-width: 46ch; }
   .tag {
     display: inline-block; font-family: "DM Sans", sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
@@ -401,7 +405,7 @@
   <section class="about" id="about">
     <div class="wrap">
       <div class="about-media reveal">
-        <img src="food.webp" alt="Chevalier plates: griyo with bannann peze and pikliz, legim, lalo, white rice with sòs pwa" width="415" height="244">
+        <img class="about-photo" src="griyo.webp" alt="A Chevalier griyo plate: fried pork with peppers, bannann peze, pikliz and salad" width="1024" height="765">
         <div class="about-badge">
           <strong>Black-owned &amp; operated</strong>
           <span>Proudly cooking for Camden from 661 Grant Street.</span>
@@ -444,7 +448,7 @@
           <span class="or">OR</span>
           <div><h4>Bannann Peze</h4><p>Fried plantains</p></div>
         </div>
-        <div class="dish"><div class="dish-top"><h3>Griyo <span class="tag fav">Signature</span><small>Haitian Fried Pork</small></h3><span class="dots"></span><span class="price"><small>Med</small>$16<small>Lg</small>$19</span></div></div>
+        <div class="dish has-photo"><img class="dish-photo" src="griyo-thumb.webp" alt="Griyo plate" width="200" height="200" loading="lazy"><div class="dish-body"><div class="dish-top"><h3>Griyo <span class="tag fav">Signature</span><small>Haitian Fried Pork</small></h3><span class="dots"></span><span class="price"><small>Med</small>$16<small>Lg</small>$19</span></div></div></div>
         <div class="dish"><div class="dish-top"><h3>Poul Fri<small>Haitian Fried Chicken</small></h3><span class="dots"></span><span class="price"><small>Med</small>$16<small>Lg</small>$19</span></div></div>
         <div class="dish"><div class="dish-top"><h3>Koden Fri<small>Haitian Fried Turkey</small></h3><span class="dots"></span><span class="price"><small>Med</small>$18<small>Lg</small>$21</span></div></div>
         <div class="dish"><div class="dish-top"><h3>Kabrit<small>Seasoned Haitian Goat</small></h3><span class="dots"></span><span class="price"><small>Med</small>$21<small>Lg</small>$24</span></div></div>
