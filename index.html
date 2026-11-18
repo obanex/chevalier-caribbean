@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chevalier Caribbean Restaurant</title>
+<meta name="description" content="Chevalier Caribbean Restaurant — Caribbean flavors made with love. Black-owned Haitian &amp; Caribbean take-out at 661 Grant Street, Camden, NJ. Open daily 10 AM – 9 PM. Call (856) 246-5932 or order on Uber Eats and DoorDash.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://chevaliercaribbean.com/">
+<meta name="theme-color" content="#0e3b2a">
+<style>
+  /* Colors taken from the Chevalier logo */
+  :root {
+    --ink: #1c1712;
+    --cream: #fbf6ea;
+    --paper: #fffcf4;
+    --green: #0e3b2a;
+    --green-deep: #0a2a1e;
+    --green-mid: #1a5238;
+    --gold: #d9aa3a;
+    --gold-soft: #eedc97;
+    --maroon: #7a1a1a;
+    --sun: #eda436;
+    --muted: #6b5f52;
+    --line: rgba(28, 23, 18, .12);
+    --radius: 18px;
+    --max: 1160px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { display: block; max-width: 100%; }
+  img { height: auto; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.08; letter-spacing: -.01em; }
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  .eyebrow {
+    font-size: .78rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--maroon);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5em;
+    padding: .9em 1.6em; border-radius: 999px; text-decoration: none;
+    border: 2px solid transparent; cursor: pointer; font: inherit; font-weight: 700;
+    transition: transform .15s ease, background .2s ease, color .2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn svg { width: 18px; height: 18px; }
+  .btn-gold { background: linear-gradient(180deg, #e9c45e, var(--gold)); color: var(--green-deep); box-shadow: inset 0 0 0 1px rgba(122,90,20,.25); }
+  .btn-gold:hover { background: linear-gradient(180deg, #f0cf6c, #e0b24a); }
+  .btn-ghost { border-color: var(--green); color: var(--green); }
+  .btn-ghost:hover { background: rgba(14,59,42,.07); }
+  .btn-green { background: var(--green); color: #fff; }
+  .btn-green:hover { background: var(--green-deep); }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 252, 244, .94); backdrop-filter: blur(10px);
+    color: var(--green); border-bottom: 1px solid rgba(217,170,58,.45);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+  .brand-mark { height: 54px; width: auto; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1; }
+  .brand-name { font-family: "Cinzel", serif; font-weight: 700; font-size: 1.35rem; letter-spacing: .06em; color: var(--green); }
+  .brand-sub { font-size: .62rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--maroon); margin-top: 4px; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; font-weight: 500; color: var(--green); }
+  .nav-links a:hover { color: var(--maroon); }
+  .nav-links .btn { padding: .55em 1.2em; }
+  .nav-links .btn:hover { color: var(--green-deep); }
+  .menu-toggle { display: none; background: none; border: 0; color: var(--green); cursor: pointer; padding: 8px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; overflow: hidden; color: var(--ink); padding: 0;
+    background:
+      radial-gradient(circle at 78% 40%, rgba(238,220,151,.55), transparent 42%),
+      radial-gradient(circle at 5% 95%, rgba(26,82,56,.10), transparent 40%),
+      linear-gradient(180deg, var(--paper) 0%, var(--cream) 100%);
+  }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    padding-top: 70px; padding-bottom: 110px;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: .5em;
+    background: rgba(14,59,42,.07); border: 1px solid rgba(14,59,42,.18); color: var(--green);
+    padding: .4em .95em; border-radius: 999px; font-size: .85rem; font-weight: 700;
+  }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 900; margin: .45em 0 .4em; color: var(--green); }
+  .hero h1 em { font-style: italic; color: var(--maroon); font-weight: 700; }
+  .hero p.lede { font-size: 1.15rem; max-width: 38ch; color: #3d342b; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 2rem; }
+  .hero-meta { display: flex; gap: 28px; margin-top: 2.6rem; flex-wrap: wrap; }
+  .hero-meta div { font-size: .9rem; color: var(--muted); }
+  .hero-meta strong { display: block; font-family: "Fraunces", serif; font-size: 1.5rem; color: var(--green); }
+  .hero-logo { justify-self: center; width: 100%; max-width: 540px; filter: drop-shadow(0 18px 30px rgba(122,90,20,.18)); }
+  .hero-wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 70px; }
+
+  /* ---------- Ticker ---------- */
+  .ticker { background: var(--green); color: var(--gold-soft); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+  .ticker-track { display: inline-flex; gap: 2.2rem; animation: scroll 36s linear infinite; font-family: "Cinzel", serif; font-weight: 700; font-size: 1.05rem; letter-spacing: .06em; }
+  .ticker-track span::after { content: "✦"; margin-left: 2.2rem; color: var(--gold); }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  section { padding: 100px 0; scroll-margin-top: 72px; }
+  .section-head { max-width: 640px; margin-bottom: 48px; }
+  .section-head h2, .h2 { font-size: clamp(2rem, 4vw, 3rem); margin: .3em 0 .4em; }
+  .section-head p { color: var(--muted); font-size: 1.08rem; }
+
+  /* ---------- About ---------- */
+  .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-media { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .about-media img { width: 100%; max-width: 520px; }
+  .about-media .about-badge { position: static; width: 100%; max-width: 520px; }
+  .about-card {
+    position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5;
+    background: linear-gradient(170deg, var(--green-mid), var(--green-deep));
+  }
+  .about-card svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .about-badge {
+    position: absolute; bottom: 22px; left: 22px; right: 22px;
+    background: var(--paper); border-radius: 14px; padding: 18px 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+  }
+  .about-badge strong { display: block; font-family: "Fraunces", serif; font-size: 1.35rem; color: var(--green); line-height: 1.2; }
+  .about-badge span { font-size: .92rem; color: var(--muted); }
+  .about-text p { color: #3d342b; font-size: 1.05rem; }
+  .about-text p + p { margin-top: 1em; }
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 2rem; }
+  .pillar { padding: 18px; background: var(--paper); border-radius: 14px; border: 1px solid var(--line); }
+  .pillar h3 { font-size: 1.05rem; margin-bottom: .3em; }
+  .pillar p { font-size: .9rem !important; color: var(--muted) !important; }
+  .signature { font-family: "Fraunces", serif; font-style: italic; font-size: 1.3rem; color: var(--green); margin-top: 1.4rem; }
+
+  /* ---------- Menu ---------- */
+  .menu { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+  .tab {
+    font: inherit; font-weight: 700; padding: .65em 1.3em; border-radius: 999px; cursor: pointer;
+    border: 2px solid var(--line); background: transparent; color: var(--ink);
+    transition: all .2s ease;
+  }
+  .tab:hover { border-color: var(--green); }
+  .tab[aria-selected="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+  .menu-panel { display: none; grid-template-columns: 1fr 1fr; gap: 6px 56px; }
+  .menu-panel.active { display: grid; animation: fade .35s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
+  .dish { padding: 20px 0; border-bottom: 1px dashed var(--line); }
+  .dish-top { display: flex; align-items: baseline; gap: 10px; }
+  .dish h3 { font-size: 1.2rem; font-weight: 700; }
+  .dish h3 small { display: block; font-family: "DM Sans", sans-serif; font-size: .78rem; font-weight: 500; color: var(--maroon); letter-spacing: .04em; margin-top: 2px; }
+  .dish .dots { flex: 1; border-bottom: 2px dotted rgba(28,23,18,.25); transform: translateY(-4px); }
+  .dish .price { font-family: "Fraunces", serif; font-weight: 700; color: var(--green); font-size: 1.15rem; white-space: nowrap; }
+  .dish .price small { font-family: "DM Sans", sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 3px 0 10px; }
+  .dish .price small:first-child { margin-left: 0; }
+  .side-choice {
+    grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center;
+    background: var(--cream); border: 1.5px solid rgba(217,170,58,.55); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 10px;
+  }
+  .side-choice h4 { font-family: "Cinzel", serif; font-size: .95rem; letter-spacing: .08em; color: var(--green); margin-bottom: 4px; }
+  .side-choice p { color: var(--muted); font-size: .95rem; }
+  .side-choice .or {
+    width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--sun); color: #fff; font-weight: 700; font-size: .85rem;
+  }
+  .side-choice .intro { grid-column: 1 / -1; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--maroon); }
+  .served-with { grid-column: 1 / -1; margin-top: 14px; font-size: .95rem; color: var(--muted); }
+  .served-with b { color: var(--maroon); letter-spacing: .12em; font-size: .78rem; margin-right: 6px; }
+  .dish p { color: var(--muted); font-size: .95rem; margin-top: 4px; max-width: 46ch; }
+  .tag {
+    display: inline-block; font-family: "DM Sans", sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 6px; margin-left: 6px; vertical-align: middle;
+  }
+  .tag.hot { background: #f6dede; color: var(--maroon); }
+  .tag.vg { background: #dff1e6; color: var(--green); }
+  .tag.fav { background: #fdf0cf; color: #8a5d00; }
+  .menu-foot { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  .menu-note { font-size: .9rem; color: var(--muted); max-width: 60ch; }
+
+  /* ---------- Specials ---------- */
+  .specials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .special {
+    border-radius: var(--radius); padding: 30px; color: #fff; position: relative; overflow: hidden;
+    min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .special::before {
+    content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%;
+    top: -60px; right: -60px; background: rgba(255,255,255,.12);
+  }
+  .special:nth-child(1) { background: linear-gradient(160deg, #b8862a, #7d5a14); }
+  .special:nth-child(2) { background: linear-gradient(160deg, #94272a, var(--maroon)); }
+  .special:nth-child(1) .day { color: #fff3c9; }
+  .special:nth-child(3) { background: linear-gradient(160deg, var(--green), var(--green-deep)); }
+  .special .day { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: var(--gold); }
+  .special h3 { font-size: 1.7rem; margin: .3em 0 .4em; }
+  .special p { opacity: .88; font-size: .97rem; }
+  .special .emoji { font-size: 2.4rem; position: absolute; top: 26px; left: 28px; }
+  .special .price-big { font-family: "Fraunces", serif; font-weight: 900; font-size: 2.4rem; color: #fff3c9; margin-top: 10px; }
+  .special .fine { font-size: .82rem; opacity: .75; margin-top: 10px; }
+
+  /* ---------- Community band ---------- */
+  .community { background: var(--green-deep); color: #fff; text-align: center; }
+  .community .eyebrow { color: var(--gold); }
+  .community h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin: .35em auto .4em; max-width: 18ch; }
+  .community h2 em { color: var(--gold); }
+  .community > .wrap > p { max-width: 56ch; margin: 0 auto; opacity: .8; font-size: 1.08rem; }
+  .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; text-align: left; }
+  .value { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 28px; }
+  .value .num { font-family: "Fraunces", serif; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+  .value h3 { font-size: 1.25rem; margin: .5em 0 .35em; }
+  .value p { opacity: .75; font-size: .95rem; }
+
+  /* ---------- Order & Visit ---------- */
+  .ways { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-bottom: 56px; }
+  @media (max-width: 1100px) { .ways { grid-template-columns: repeat(2, 1fr); } }
+  .way {
+    background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .way.primary { background: var(--green); color: #fff; border-color: var(--green); }
+  .way .label { font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--maroon); }
+  .way.primary .label { color: var(--gold-soft); }
+  .way h3 { font-size: 1.5rem; }
+  .way p { color: var(--muted); flex: 1; }
+  .way.primary p { color: rgba(255,255,255,.75); }
+  .way .btn { align-self: flex-start; margin-top: 8px; }
+  .btn-outline { border-color: var(--green); color: var(--green); }
+  .btn-outline:hover { background: rgba(14,59,42,.07); }
+  .visit-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: stretch; }
+  .info-block { margin-bottom: 26px; }
+  .info-block h3 { font-size: 1.15rem; margin-bottom: .4em; color: var(--green); }
+  .info-block p, .info-block a { color: #3d342b; }
+  .info-block .big { font-family: "Fraunces", serif; font-size: 1.5rem; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .open-status {
+    display: inline-flex; align-items: center; gap: .5em; margin-top: 8px;
+    font-size: .85rem; font-weight: 700; padding: .3em .8em; border-radius: 999px;
+    background: rgba(14,59,42,.08); color: var(--green);
+  }
+  .open-status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  .open-status.closed { background: #f6dede; color: var(--maroon); }
+  .map {
+    border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 420px;
+    background: var(--paper); position: relative;
+  }
+  .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .dir-link { margin-top: 18px; }
+
+  /* ---------- Footer ---------- */
+  footer { color: rgba(255,255,255,.75); padding: 60px 0 30px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+  footer { background: var(--green-deep); }
+  .foot-logo { width: 220px; height: auto; }
+  footer h4 { color: #fff; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 8px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+  .socials { display: flex; gap: 12px; margin-top: 18px; }
+  .socials a {
+    width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  .socials a:hover { border-color: var(--gold); }
+  .socials svg { width: 18px; height: 18px; fill: currentColor; }
+  .copyright { border-top: 1px solid rgba(255,255,255,.1); margin-top: 44px; padding-top: 22px; font-size: .85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ---------- Mobile call bar ---------- */
+  .call-bar { display: none; }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .ticker-track { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero .wrap, .about .wrap, .visit-grid { grid-template-columns: 1fr; }
+    .hero .wrap { padding-top: 50px; padding-bottom: 90px; }
+    .hero-logo { max-width: 300px; order: -1; }
+    .menu-panel { grid-template-columns: 1fr; }
+    .specials-grid, .values, .ways { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .foot-grid > :first-child { grid-column: 1 / -1; }
+    section { padding: 72px 0; }
+    .map { min-height: 320px; }
+  }
+  @media (max-width: 760px) {
+    .menu-toggle { display: block; }
+    .nav-links {
+      position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0;
+      background: var(--paper); padding: 8px 20px 20px; display: none;
+      border-bottom: 1px solid rgba(217,170,58,.45); box-shadow: 0 16px 30px rgba(0,0,0,.08);
+    }
+    .brand-mark { height: 46px; }
+    .brand-name { font-size: 1.15rem; }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 12px 0; }
+    .nav-links .btn { margin-top: 8px; justify-content: center; }
+    .pillars { grid-template-columns: 1fr; }
+    .side-choice { grid-template-columns: 1fr; text-align: center; }
+    .side-choice .or { margin: 0 auto; }
+    .dish-top { flex-wrap: wrap; }
+    .dish .dots { display: none; }
+    .dish .price { margin-left: auto; }
+    .about-card { aspect-ratio: 1; }
+    body { padding-bottom: 72px; }
+    .call-bar { display: flex; gap: 10px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; }
+    .call-bar a {
+      display: flex; justify-content: center; align-items: center; gap: .5em;
+      text-decoration: none; font-weight: 700; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .call-bar .order { flex: 1; padding: 15px; background: var(--gold); color: var(--green-deep); }
+    .call-bar .call { width: 54px; flex: none; background: var(--green); color: #fff; }
+    .call-bar svg { width: 18px; height: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Chevalier home">
+      <img class="brand-mark" src="logo-emblem.webp" alt="" width="320" height="335">
+      <span class="brand-text">
+        <span class="brand-name">Chevalier</span>
+        <span class="brand-sub">Haitian Caribbean Cuisine</span>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#specials">Specials</a></li>
+      <li><a href="#order">Order &amp; Hours</a></li>
+      <li><a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj" class="btn btn-gold">Order Online</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="pill"><span class="fist" aria-hidden="true">✊🏿</span> Black-owned &amp; operated · Camden, NJ</span>
+        <h1>Caribbean flavors made with <em>love.</em></h1>
+        <p class="lede">Griyo, poul fri, kabrit, legim and lalo with diri djondjon — Haitian and Caribbean home cooking, made with love. Take-out friendly: order online for pickup at 661 Grant Street, or get it delivered.</p>
+        <div class="hero-ctas">
+          <a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj" class="btn btn-gold">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 7V6a6 6 0 0112 0v1h3v13a2 2 0 01-2 2H5a2 2 0 01-2-2V7h3zm2 0h8V6a4 4 0 00-8 0v1z"/></svg>
+            Order Online
+          </a>
+          <a href="tel:+18562465932" class="btn btn-ghost">Call (856) 246-5932</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>Take-out</strong>friendly</div>
+          <div><strong>10 AM – 9 PM</strong>Open every day</div>
+          <div><strong>Delivery</strong>Uber Eats &amp; DoorDash</div>
+        </div>
+      </div>
+      <img class="hero-logo" src="logo-full.webp" alt="Chevalier Caribbean Restaurant — Haitian Caribbean Cuisine" width="1100" height="789">
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 40c240 30 480 30 720 0s480-30 720 0v30H0z" fill="#0e3b2a"/>
+    </svg>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Griyo</span><span>Poul Fri</span><span>Koden Fri</span><span>Kabrit</span><span>Ke Bèf</span><span>Legim</span><span>Lalo</span><span>Pwason</span><span>Diri Djondjon</span><span>Bannann Peze</span><span>Pate Kòde</span><span>Bouyon Lakay</span>
+      <span>Griyo</span><span>Poul Fri</span><span>Koden Fri</span><span>Kabrit</span><span>Ke Bèf</span><span>Legim</span><span>Lalo</span><span>Pwason</span><span>Diri Djondjon</span><span>Bannann Peze</span><span>Pate Kòde</span><span>Bouyon Lakay</span>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-media reveal">
+        <img src="food.webp" alt="Chevalier plates: griyo with bannann peze and pikliz, legim, lalo, white rice with sòs pwa" width="415" height="244">
+        <div class="about-badge">
+          <strong>Black-owned &amp; operated</strong>
+          <span>Proudly cooking for Camden from 661 Grant Street.</span>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p class="eyebrow">Our Story</p>
+        <h2 class="h2">A taste of home, from Haiti to Camden.</h2>
+        <p>Chevalier is a Black-owned and operated Haitian Caribbean kitchen on Grant Street in Camden. We cook the food we grew up on — griyo, kabrit, legim, lalo and ke bèf — with the bold, home-style flavor of Haiti.</p>
+        <p>We're take-out friendly, so everything is made to travel: <a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj">order online</a> and swing by Grant Street, or order on Uber Eats or DoorDash and have a hot plate of griyo, legim or diri djondjon brought to your door.</p>
+        <div class="pillars">
+          <div class="pillar"><h3>Haitian at heart</h3><p>Traditional dishes like lalo, legim and bouyon lakay.</p></div>
+          <div class="pillar"><h3>Your size</h3><p>Medium or large plates, each with a side.</p></div>
+          <div class="pillar"><h3>Take-out friendly</h3><p>Order online for pickup, or get it delivered.</p></div>
+        </div>
+        <p class="signature">Bon Manje!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Menu</p>
+        <h2>Come hungry. Leave full.</h2>
+        <p>Every main dish comes in medium or large and includes one side of your choice.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Menu categories">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-mains" id="t-mains">Main Dishes</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-sides" id="t-sides">Sides &amp; Pate</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-drinks" id="t-drinks">Beverages</button>
+      </div>
+
+      <div class="menu-panel active" role="tabpanel" id="p-mains" aria-labelledby="t-mains">
+        <div class="side-choice">
+          <p class="intro">Choose your side · each meal includes one</p>
+          <div><h4>Rice</h4><p>Diri Blan + Sòs Pwa · Diri Kole · Diri Djondjon <strong>+$1</strong></p></div>
+          <span class="or">OR</span>
+          <div><h4>Bannann Peze</h4><p>Fried plantains</p></div>
+        </div>
+        <div class="dish"><div class="dish-top"><h3>Griyo <span class="tag fav">Signature</span><small>Haitian Fried Pork</small></h3><span class="dots"></span><span class="price"><small>Med</small>$16<small>Lg</small>$19</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Poul Fri<small>Haitian Fried Chicken</small></h3><span class="dots"></span><span class="price"><small>Med</small>$16<small>Lg</small>$19</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Koden Fri<small>Haitian Fried Turkey</small></h3><span class="dots"></span><span class="price"><small>Med</small>$18<small>Lg</small>$21</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Kabrit<small>Seasoned Haitian Goat</small></h3><span class="dots"></span><span class="price"><small>Med</small>$21<small>Lg</small>$24</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Ke Bèf<small>Slow-Cooked Oxtail</small></h3><span class="dots"></span><span class="price"><small>Med</small>$21<small>Lg</small>$24</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Legim<small>Traditional Haitian Vegetable Stew</small></h3><span class="dots"></span><span class="price"><small>Med</small>$16<small>Lg</small>$19</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Lalo<small>Traditional Haitian Jute Leaf Stew</small></h3><span class="dots"></span><span class="price"><small>Med</small>$18<small>Lg</small>$21</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Pwason<small>Fish</small></h3><span class="dots"></span><span class="price">$35</span></div></div>
+        <p class="served-with"><b>SIDE</b>Diri · Bannann · Pikliz · Akra &amp; Marinad</p>
+      </div>
+
+      <div class="menu-panel" role="tabpanel" id="p-sides" aria-labelledby="t-sides">
+        <div class="dish"><div class="dish-top"><h3>Diri Blan<small>White Rice</small></h3><span class="dots"></span><span class="price">$7.50</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Diri Kole<small>Rice &amp; Beans</small></h3><span class="dots"></span><span class="price">$7.50</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Diri Djondjon<small>Black Mushroom Rice</small></h3><span class="dots"></span><span class="price">$8.50</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Bannann Peze<small>Fried Plantains</small></h3><span class="dots"></span><span class="price">$5.50</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Macaroni au Gratin<small>Haitian mac &amp; cheese</small></h3><span class="dots"></span><span class="price">$6</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Extra Pikliz<small>Spicy pickled slaw</small></h3><span class="dots"></span><span class="price">$1</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Extra Sòs Pwa<small>Bean sauce</small></h3><span class="dots"></span><span class="price">$2</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Extra Sauce<small></small></h3><span class="dots"></span><span class="price">$1</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Pate Kòde <span class="tag fav">Haitian</span><small>Traditional Haitian Stuffed Pastry</small></h3><span class="dots"></span><span class="price">$10 · $12 · $15</span></div><p>Ask about available fillings.</p></div>
+      </div>
+
+      <div class="menu-panel" role="tabpanel" id="p-drinks" aria-labelledby="t-drinks">
+        <div class="dish"><div class="dish-top"><h3>Cola Couronne</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Cola Lacaye</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Ragaman</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Robusto</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Malta</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Mistic</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Monster</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Toro</h3><span class="dots"></span><span class="price">$3.50</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Pepsi</h3><span class="dots"></span><span class="price">$3</span></div></div>
+        <div class="dish"><div class="dish-top"><h3>Canned Soda</h3><span class="dots"></span><span class="price">$3</span></div></div>
+      </div>
+
+      <div class="menu-foot">
+        <p class="menu-note">Please tell us about any allergies when you order. Prices and availability may change.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="menu.webp" class="btn btn-outline" target="_blank" rel="noopener">View Printable Menu</a>
+          <a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj" class="btn btn-green">Order Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specials -->
+  <section class="specials" id="specials">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Weekend Specials</p>
+        <h2>Something to look forward to.</h2>
+        <p>Only on weekends — call early, they go fast.</p>
+      </div>
+      <div class="specials-grid">
+        <article class="special reveal">
+          <span class="emoji" aria-hidden="true">🍲</span>
+          <p class="day">Saturdays</p>
+          <h3>Bouyon Lakay</h3>
+          <p>Traditional Haitian bouyon with beef, root vegetables, plantains, dumplings and fresh herbs.</p>
+          <p class="fine">Available Saturdays · while supplies last</p>
+        </article>
+        <article class="special reveal">
+          <span class="emoji" aria-hidden="true">🐟</span>
+          <p class="day">Weekends</p>
+          <h3>Pwason Fri</h3>
+          <p>Whole red snapper.</p>
+          <p class="price-big">$35</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community -->
+  <section class="community">
+    <div class="wrap">
+      <p class="eyebrow reveal">Black-Owned &amp; Operated</p>
+      <h2 class="reveal">Rooted in Camden. <em>Seasoned in Haiti.</em></h2>
+      <p class="reveal">When you eat at Chevalier, you're supporting a Black-owned business and the Camden neighborhood we call home.</p>
+      <div class="values">
+        <div class="value reveal"><div class="num">01</div><h3>Haitian recipes</h3><p>Dishes like lalo, legim and bouyon lakay, cooked the way they're meant to be.</p></div>
+        <div class="value reveal"><div class="num">02</div><h3>Community first</h3><p>Proud to be part of Camden, and to feed our neighbors like family.</p></div>
+        <div class="value reveal"><div class="num">03</div><h3>Culture on a plate</h3><p>Sharing Haitian food and pride with everyone who walks through our door.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order & Visit -->
+  <section id="order">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How to Order</p>
+        <h2>Take-out friendly, your way.</h2>
+        <p>Order online and pick it up hot, call ahead, or have it delivered straight to your door.</p>
+      </div>
+      <div class="ways">
+        <div class="way primary reveal">
+          <span class="label">Pickup · Fastest</span>
+          <h3>Order online</h3>
+          <p>Browse the full menu, pay online, and pick it up hot at 661 Grant Street.</p>
+          <a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj" class="btn btn-gold">Start Your Order →</a>
+        </div>
+        <div class="way reveal">
+          <span class="label">Pickup</span>
+          <h3>Call ahead</h3>
+          <p>Prefer to talk to us? Call, place your order, and swing by.</p>
+          <a href="tel:+18562465932" class="btn btn-outline">(856) 246-5932</a>
+        </div>
+        <div class="way reveal">
+          <span class="label">Delivery</span>
+          <h3>Uber Eats</h3>
+          <p>Get Chevalier delivered to your door through Uber Eats.</p>
+          <a href="https://www.ubereats.com/search?q=Chevalier%20Caribbean%20Restaurant" class="btn btn-outline" target="_blank" rel="noopener">Order on Uber Eats →</a>
+        </div>
+        <div class="way reveal">
+          <span class="label">Delivery</span>
+          <h3>DoorDash</h3>
+          <p>Prefer DoorDash? Find us there and order in a few taps.</p>
+          <a href="https://www.doordash.com/search/store/Chevalier%20Caribbean%20Restaurant/" class="btn btn-outline" target="_blank" rel="noopener">Order on DoorDash →</a>
+        </div>
+      </div>
+
+      <div class="visit-grid">
+        <div class="reveal">
+          <div class="info-block">
+            <h3>Location</h3>
+            <p>661 Grant Street<br>Camden, NJ 08102</p>
+          </div>
+          <div class="info-block">
+            <h3>Call to order</h3>
+            <a class="big" href="tel:+18562465932">(856) 246-5932</a>
+            <p style="margin-top:6px"><a href="mailto:f.abson@chevaliercaribbean.com">f.abson@chevaliercaribbean.com</a></p>
+          </div>
+          <div class="info-block">
+            <h3>Hours</h3>
+            <p class="big">10 AM – 9 PM</p>
+            <p>Open 7 days a week</p>
+            <span class="open-status" id="open-status" hidden></span>
+          </div>
+          <a class="btn btn-green dir-link" href="https://www.google.com/maps/dir/?api=1&destination=661+Grant+St,+Camden,+NJ+08102" target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+        <div class="map reveal">
+          <iframe title="Map to Chevalier at 661 Grant Street, Camden, NJ" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=661+Grant+St,+Camden,+NJ+08102&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" aria-label="Chevalier home">
+          <img class="foot-logo" src="logo-light.webp" alt="Chevalier Caribbean Restaurant" width="1100" height="789" loading="lazy">
+        </a>
+        <p style="margin-top:12px;max-width:36ch">Caribbean flavors made with love. Black-owned, take-out friendly Haitian &amp; Caribbean kitchen in Camden, NJ.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.3 5.5a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM12 2c-2.7 0-3 0-4.1.1C4.3 2.2 2.2 4.3 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1c.1 3.6 2.2 5.7 5.8 5.8 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c3.6-.1 5.7-2.2 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1c-.1-3.6-2.2-5.7-5.8-5.8C15 2 14.7 2 12 2zm0 1.8c2.7 0 3 0 4 .1 2.6.1 3.9 1.4 4 4 .1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.6-1.4 3.9-4 4-1 .1-1.3.1-4 .1s-3 0-4-.1c-2.6-.1-3.9-1.4-4-4C3.9 15 3.8 14.7 3.8 12s0-3 .1-4c.1-2.6 1.4-3.9 4-4 1-.1 1.3-.1 4-.1z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.2 2.25h3.4l-7.4 8.46L23 21.75h-6.8l-5.3-6.95-6.1 6.95H1.4l7.9-9.05L1 2.25h7l4.8 6.35 5.4-6.35zm-1.2 17.5h1.9L7.1 4.2H5.1l11.9 15.55z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#specials">Specials</a></li>
+          <li><a href="#order">Order &amp; Hours</a></li>
+          <li><a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj">Order Online</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>661 Grant Street</li>
+          <li>Camden, NJ 08102</li>
+          <li><a href="tel:+18562465932">(856) 246-5932</a></li>
+          <li><a href="mailto:f.abson@chevaliercaribbean.com">f.abson@chevaliercaribbean.com</a></li>
+          <li>Open daily, 10 AM – 9 PM</li>
+          <li><a href="https://www.ubereats.com/search?q=Chevalier%20Caribbean%20Restaurant" target="_blank" rel="noopener">Uber Eats</a> · <a href="https://www.doordash.com/search/store/Chevalier%20Caribbean%20Restaurant/" target="_blank" rel="noopener">DoorDash</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© <span id="year"></span> Chevalier Caribbean Restaurant. All rights reserved.</span>
+      <span>Black-owned &amp; operated ✊🏿</span>
+    </div>
+  </div>
+</footer>
+
+<div class="call-bar">
+  <a class="order" href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 7V6a6 6 0 0112 0v1h3v13a2 2 0 01-2 2H5a2 2 0 01-2-2V7h3zm2 0h8V6a4 4 0 00-8 0v1z"/></svg>
+    Order Online
+  </a>
+  <a class="call" href="tel:+18562465932" aria-label="Call (856) 246-5932">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+  </a>
+</div>
+
+<script>
+  // Mobile nav
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Menu tabs
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    tab.setAttribute('aria-selected', 'true');
+    document.getElementById(tab.getAttribute('aria-controls')).classList.add('active');
+  }));
+
+  // Open now / closed (10 AM – 9 PM daily, Eastern time)
+  const status = document.getElementById('open-status');
+  const hour = Number(new Intl.DateTimeFormat('en-US', { hour: 'numeric', hourCycle: 'h23', timeZone: 'America/New_York' }).format(new Date()));
+  const isOpen = hour >= 10 && hour < 21;
+  status.textContent = isOpen ? 'Open now' : 'Closed now · opens 10 AM';
+  status.classList.toggle('closed', !isOpen);
+  status.hidden = false;
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
