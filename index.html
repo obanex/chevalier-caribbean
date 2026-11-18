@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chevalier Caribbean Restaurant</title>
-<meta name="description" content="Chevalier Caribbean Restaurant — Caribbean flavors made with love. Black-owned Haitian &amp; Caribbean take-out at 661 Grant Street, Camden, NJ. Open daily 10 AM – 9 PM. Call (856) 246-5932 or order on Uber Eats and DoorDash.">
+<meta name="description" content="Chevalier Caribbean Restaurant — Caribbean flavors made with love. Black-owned Haitian &amp; Caribbean take-out at 661 Grant Street, Camden, NJ. Open daily 10 AM – 9 PM. Call (856) 246-5932 or order on Uber Eats, DoorDash and Grubhub.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -223,8 +223,14 @@
   .value p { opacity: .75; font-size: .95rem; }
 
   /* ---------- Order & Visit ---------- */
-  .ways { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-bottom: 56px; }
-  @media (max-width: 1100px) { .ways { grid-template-columns: repeat(2, 1fr); } }
+  .ways { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 56px; }
+  .ways .way.primary { grid-column: 1 / -1; }
+  /* Wide screens: pickup options on top, the three delivery apps below */
+  @media (min-width: 1101px) {
+    .ways { grid-template-columns: repeat(6, 1fr); }
+    .ways .way { grid-column: span 2; }
+    .ways .way:nth-child(-n+2) { grid-column: span 3; }
+  }
   .way {
     background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
     display: flex; flex-direction: column; gap: 10px;
@@ -264,7 +270,7 @@
   .foot-logo { width: 220px; height: auto; }
   footer h4 { color: #fff; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
   footer ul { list-style: none; }
-  footer li { margin-bottom: 8px; }
+  footer li { margin-bottom: 8px; overflow-wrap: anywhere; }
   footer a { text-decoration: none; }
   footer a:hover { color: var(--gold); }
   .socials { display: flex; gap: 12px; margin-top: 18px; }
@@ -295,7 +301,7 @@
     .hero-logo { max-width: 300px; order: -1; }
     .menu-panel { grid-template-columns: 1fr; }
     .specials-grid, .values, .ways { grid-template-columns: 1fr; }
-    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .foot-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .foot-grid > :first-child { grid-column: 1 / -1; }
     section { padding: 72px 0; }
     .map { min-height: 320px; }
@@ -374,7 +380,7 @@
         <div class="hero-meta">
           <div><strong>Take-out</strong>friendly</div>
           <div><strong>10 AM – 9 PM</strong>Open every day</div>
-          <div><strong>Delivery</strong>Uber Eats &amp; DoorDash</div>
+          <div><strong>Delivery</strong>Uber Eats, DoorDash &amp; Grubhub</div>
         </div>
       </div>
       <img class="hero-logo" src="logo-full.webp" alt="Chevalier Caribbean Restaurant — Haitian Caribbean Cuisine" width="1100" height="789">
@@ -405,7 +411,7 @@
         <p class="eyebrow">Our Story</p>
         <h2 class="h2">A taste of home, from Haiti to Camden.</h2>
         <p>Chevalier is a Black-owned and operated Haitian Caribbean kitchen on Grant Street in Camden. We cook the food we grew up on — griyo, kabrit, legim, lalo and ke bèf — with the bold, home-style flavor of Haiti.</p>
-        <p>We're take-out friendly, so everything is made to travel: <a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj">order online</a> and swing by Grant Street, or order on Uber Eats or DoorDash and have a hot plate of griyo, legim or diri djondjon brought to your door.</p>
+        <p>We're take-out friendly, so everything is made to travel: <a href="https://order.toasttab.com/online/chevalier-caribbean-restaurant-nj">order online</a> and swing by Grant Street, or order on Uber Eats, DoorDash or Grubhub and have a hot plate of griyo, legim or diri djondjon brought to your door.</p>
         <div class="pillars">
           <div class="pillar"><h3>Haitian at heart</h3><p>Traditional dishes like lalo, legim and bouyon lakay.</p></div>
           <div class="pillar"><h3>Your size</h3><p>Medium or large plates, each with a side.</p></div>
@@ -558,6 +564,12 @@
           <p>Prefer DoorDash? Find us there and order in a few taps.</p>
           <a href="https://www.doordash.com/search/store/Chevalier%20Caribbean%20Restaurant/" class="btn btn-outline" target="_blank" rel="noopener">Order on DoorDash →</a>
         </div>
+        <div class="way reveal">
+          <span class="label">Delivery</span>
+          <h3>Grubhub</h3>
+          <p>On Grubhub? Order Chevalier there and track it to your door.</p>
+          <a href="https://www.grubhub.com/search?queryText=Chevalier%20Caribbean%20Restaurant" class="btn btn-outline" target="_blank" rel="noopener">Order on Grubhub →</a>
+        </div>
       </div>
 
       <div class="visit-grid">
@@ -621,7 +633,7 @@
           <li><a href="tel:+18562465932">(856) 246-5932</a></li>
           <li><a href="mailto:f.abson@chevaliercaribbean.com">f.abson@chevaliercaribbean.com</a></li>
           <li>Open daily, 10 AM – 9 PM</li>
-          <li><a href="https://www.ubereats.com/search?q=Chevalier%20Caribbean%20Restaurant" target="_blank" rel="noopener">Uber Eats</a> · <a href="https://www.doordash.com/search/store/Chevalier%20Caribbean%20Restaurant/" target="_blank" rel="noopener">DoorDash</a></li>
+          <li><a href="https://www.ubereats.com/search?q=Chevalier%20Caribbean%20Restaurant" target="_blank" rel="noopener">Uber Eats</a> · <a href="https://www.doordash.com/search/store/Chevalier%20Caribbean%20Restaurant/" target="_blank" rel="noopener">DoorDash</a> · <a href="https://www.grubhub.com/search?queryText=Chevalier%20Caribbean%20Restaurant" target="_blank" rel="noopener">Grubhub</a></li>
         </ul>
       </div>
     </div>
